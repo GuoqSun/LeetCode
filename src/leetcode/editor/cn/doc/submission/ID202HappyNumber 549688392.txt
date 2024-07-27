@@ -1,0 +1,22 @@
+class Solution {
+    public boolean isHappy(int n) {
+        Set<Integer> set = new HashSet<>();
+        while(n!=1){
+            n = getSum(n);
+            if(set.contains(n)) return false;
+            else set.add(n);
+        }
+        return true;
+    }
+
+    public int getSum(int n){
+        String s =String.valueOf(n);
+        int sum = 0;
+        for(char c:s.toCharArray()){
+            sum+=(c-'0')*(c-'0');
+        }
+        return sum;
+    }
+}
+//runtime:2 ms
+//memory:40.4 MB
